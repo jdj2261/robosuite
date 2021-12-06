@@ -1,15 +1,15 @@
 from robosuite.models import MujocoWorldBase
-from robosuite.models.robots import Panda
+from robosuite.models.robots import Panda, UR5e
 from robosuite.models.grippers import gripper_factory, RethinkGripper
 from robosuite.models.arenas import BinsArena, TableArena, WipeArena
-from robosuite.models.objects import BallObject, BoxObject
+from robosuite.models.objects import BallObject, BoxObject, CanObject
 from mujoco_py import MjSim, MjViewer
 
 world = MujocoWorldBase()
 
-mujoco_robot = Panda()
+mujoco_robot = UR5e()
 
-gripper = gripper_factory('PandaGripper')
+gripper = gripper_factory('Robotiq85Gripper')
 mujoco_robot.add_gripper(gripper)
 mujoco_robot.set_base_xpos([0, 0, 0])
 world.merge(mujoco_robot)
